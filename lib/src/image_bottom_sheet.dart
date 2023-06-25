@@ -72,11 +72,18 @@ class ImageBottomSheet extends StatelessWidget {
       source: ImageSource.gallery,
       imageQuality: 100,
     );
-    file = File(pickedFile!.path);
+
+    if (pickedFile != null) {
+      file = File(pickedFile.path);
+      return file;
+      } else {
+      return null;
+      }
+    // file = File(pickedFile!.path);
     // imageFileupload= pickedFile;
     //String filepath = pickedFile!.path;
     //_cropImage(filepath);
-    return file;
+
 
     // setState(() {
     //   if (type == 'chalan') {
@@ -94,9 +101,12 @@ class ImageBottomSheet extends StatelessWidget {
         source: ImageSource.camera,
         imageQuality: 50,
         preferredCameraDevice: CameraDevice.rear);
-    file = File(pickedFile!.path);
-
-    return file;
+     if (pickedFile != null) {
+      file = File(pickedFile.path);
+      return file;
+      } else {
+      return null;
+      }
 
     // setState(() {
     //   if (type == 'chalan') {
